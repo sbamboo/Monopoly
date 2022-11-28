@@ -2,7 +2,7 @@
 # License: This version of monopoly is given out as a school project, however future versions may/will be licensed separately.
 #          Being a school project means my teacher and school are given permission to view and modify this project as a way to help with grading this project.
 #          The only condition being that I remain as the author of this project and in a position where I may continue to work on this project outside of school and be able to license any future versions of this project as i wish.
-#          For al non school personel this project is private however you may use the code as insipiration as long as I (Simon Kalmi Claesson) gets credited and you link back to the github page: 
+#          For al non school personel this project is private however you may use the code as insipiration as long as I (Simon Kalmi Claesson) gets credited and you link back to the github page: https://github.com/simonkalmiclaesson/Monopoly, note that you are not allowed to copy or claim this code or any assets from this project as your own.
 #
 # Other files:
 #    utils.py - Utility file for keyboard and other
