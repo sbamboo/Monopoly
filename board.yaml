@@ -1,0 +1,534 @@
+dice.1:
+  cords:
+    - 33
+    - 14
+  2cords:
+    - 33
+    - 17
+dice.2:
+  cords:
+    - 42
+    - 14
+  2cords:
+    - 42
+    - 17
+
+tile.1:
+  name: ""
+  tag: "walk"
+  price: ""
+  passover: '+200'
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 31
+    
+tile.2:
+  name: ""
+  tag: "road"
+  price: 60
+  passover: ""
+  color: "brown"
+  payEventIncome: "20"
+  buildings:
+    - ""
+  cords:
+    - 66
+    - 31
+
+tile.3:
+  name: ""
+  tag: "community_chest"
+  price: ""
+  passover: ""
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 59
+    - 31
+
+tile.4:
+  name: ""
+  tag: "road"
+  price: 60
+  passover: ""
+  color: "brown"
+  payEventIncome: "20"
+  buildings:
+    - ""
+  cords:
+    - 52
+    - 31
+
+tile.5:
+  name: ""
+  tag: "tax"
+  price: ""
+  passover: -200
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 45
+    - 31
+
+tile.6:
+  name: ""
+  tag: "station"
+  price: 200
+  passover: ""
+  color: ""
+  payEventIncome: "80"
+  buildings:
+    - ""
+  cords:
+    - 38
+    - 31
+
+tile.7:
+  name: ""
+  tag: "road"
+  price: 100
+  passover: ""
+  color: "cyan"
+  payEventIncome: "30"
+  buildings:
+    - ""
+  cords:
+    - 31
+    - 31
+
+tile.8:
+  name: ""
+  tag: "chance"
+  price: ""
+  passover: ""
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 24
+    - 31
+
+tile.9:
+  name: ""
+  tag: "road"
+  price: 100
+  passover: ""
+  color: "cyan"
+  payEventIncome: "30"
+  buildings:
+    - ""
+  cords:
+    - 17
+    - 31
+
+tile.10:
+  name: ""
+  tag: "road"
+  price: 100
+  passover: ""
+  color: "cyan"
+  payEventIncome: "30"
+  buildings:
+    - ""
+  cords:
+    - 10
+    - 31
+
+tile.11:
+  name: ""
+  tag: "prison_visit"
+  price: ""
+  passover: ""
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 31
+
+tile.12:
+  name: ""
+  tag: "road"
+  price: 140
+  passover: ""
+  color: "magenta"
+  payEventIncome: "40"
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 28
+
+tile.13:
+  name: ""
+  tag: "station"
+  price: 150
+  passover: ""
+  color: ""
+  payEventIncome: "100"
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 25
+
+tile.14:
+  name: ""
+  tag: "road"
+  price: 140
+  passover: ""
+  color: "magenta"
+  payEventIncome: "10"
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 22
+
+tile.15:
+  name: ""
+  tag: "road"
+  price: 160
+  passover: ""
+  color: "magenta"
+  payEventIncome: "40"
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 19
+
+tile.16:
+  name: ""
+  tag: "station"
+  price: 200
+  passover: ""
+  color: ""
+  payEventIncome: "120"
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 16
+
+tile.17:
+  name: ""
+  tag: "road"
+  price: 180
+  passover: ""
+  color: "orange"
+  payEventIncome: "50"
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 13
+
+tile.18:
+  name: ""
+  tag: "community_chest"
+  price: ""
+  passover: ""
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 10
+
+tile.19:
+  name: ""
+  tag: "road"
+  price: 180
+  passover: ""
+  color: "orange"
+  payEventIncome: "50"
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 7
+
+tile.20:
+  name: ""
+  tag: "road"
+  price: 200
+  passover: ""
+  color: "orange"
+  payEventIncome: "50"
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 4
+
+tile.21:
+  name: ""
+  tag: "free_parking"
+  price: ""
+  passover: ""
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 3
+    - 1
+
+tile.22:
+  name: ""
+  tag: "road"
+  price: 220
+  passover: ""
+  color: "red"
+  payEventIncome: "60"
+  buildings:
+    - ""
+  cords:
+    - 10
+    - 1
+
+tile.23:
+  name: ""
+  tag: "chance"
+  price: ""
+  passover: ""
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 17
+    - 1
+
+tile.24:
+  name: ""
+  tag: "road"
+  price: 220
+  passover: ""
+  color: "red"
+  payEventIncome: "60"
+  buildings:
+    - ""
+  cords:
+    - 24
+    - 1
+
+tile.25:
+  name: ""
+  tag: "road"
+  price: 240
+  passover: ""
+  color: "red"
+  payEventIncome: "60"
+  buildings:
+    - ""
+  cords:
+    - 31
+    - 1
+
+tile.26:
+  name: ""
+  tag: "station"
+  price: 200
+  passover: ""
+  payEventIncome: "150"
+  color: ""
+  buildings:
+    - ""
+  cords:
+    - 38
+    - 1
+
+tile.27:
+  name: ""
+  tag: "road"
+  price: 260
+  passover: ""
+  color: "yellow"
+  payEventIncome: "70"
+  buildings:
+    - ""
+  cords:
+    - 45
+    - 1
+
+tile.28:
+  name: ""
+  tag: "road"
+  price: 260
+  passover: ""
+  color: "yellow"
+  payEventIncome: "70"
+  buildings:
+    - ""
+  cords:
+    - 52
+    - 1
+
+tile.29:
+  name: ""
+  tag: "station"
+  price: 150
+  passover: ""
+  color: ""
+  payEventIncome: "170"
+  buildings:
+    - ""
+  cords:
+    - 59
+    - 1
+
+tile.30:
+  name: ""
+  tag: "road"
+  price: 280
+  passover: ""
+  color: "yellow"
+  payEventIncome: "70"
+  buildings:
+    - ""
+  cords:
+    - 66
+    - 1
+
+tile.31:
+  name: ""
+  tag: "prison"
+  price: ""
+  passover: ""
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 1
+
+tile.32:
+  name: ""
+  tag: "road"
+  price: 300
+  passover: ""
+  color: "green"
+  payEventIncome: "80"
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 4
+
+tile.33:
+  name: ""
+  tag: "road"
+  price: 300
+  passover: ""
+  color: "green"
+  payEventIncome: "80"
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 7
+
+tile.34:
+  name: ""
+  tag: "community_chest"
+  price: ""
+  passover: ""
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 10
+
+tile.35:
+  name: ""
+  tag: "road"
+  price: 320
+  passover: ""
+  color: "green"
+  payEventIncome: "80"
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 13
+
+tile.36:
+  name: ""
+  tag: "station"
+  price: 200
+  passover: ""
+  color: ""
+  payEventIncome: "200"
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 16
+
+tile.37:
+  name: ""
+  tag: "chance"
+  price: ""
+  passover: ""
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 19
+
+tile.38:
+  name: ""
+  tag: "road"
+  price: 350
+  passover: ""
+  color: "blue"
+  payEventIncome: "90"
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 22
+
+tile.39:
+  name: ""
+  tag: "tax"
+  price: ""
+  passover: -100
+  color: ""
+  payEventIncome: ""
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 25
+
+tile.40:
+  name: ""
+  tag: "road"
+  price: 400
+  passover: ""
+  color: "blue"
+  payEventIncome: "90"
+  buildings:
+    - ""
+  cords:
+    - 73
+    - 28

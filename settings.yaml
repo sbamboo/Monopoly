@@ -1,0 +1,143 @@
+# Sound settings (OBS! The sound engine is currently not implemented)
+sound:
+  enabled: False
+  backgroundTrack: ""
+
+# Animation settings
+animations:
+  enabled: True
+  delay: # Seconds between frame
+    diceroll: 0.1
+    diceroll_win: 0.1
+    walk: 0.4
+    prison: 0.1
+
+# Window settings (Console window and UI)
+window:
+  title: "Monopoly"
+  width: 148
+  height: 35
+  ui_offset: 1
+
+# Game logic settings  (Winning round can be False to disable)
+gameStuff:
+  winningRound: 3
+  loosingNoMoney: True
+  canAfford: False
+  roundIncome: True
+  sellModifier: 0.8
+  startingCash: 300
+  startingTile: "tile.1"
+  diceRange: 1-6
+  prison_maxTries: 3
+  prison_buyPrice: 300
+
+# Theme settings
+theme:
+  # Theme color configuration (Only use colors specified in palette, to use a custom color add it to the palette.)
+  dice:
+    normal: "light_yellow"
+    selected: "light_green"
+  tile:
+    normal: "light_gray"
+    selected: "light_gray"
+  ui:
+    selector: "green"
+    background: "gray"
+    text: "light_gray"
+    list: "light_gray"
+
+  # Pallete Configuration
+  palette:
+    white: "#ffffff"
+    black: "#000000"
+    red: "#ff0000"
+    green: "#00ff00"
+    blue: "#0000ff"
+    yellow: "#ffff00"
+    magenta: "#ff00ff"
+    cyan: "#00ffff"
+    gray: "#666666"
+    light_gray: "#999999"
+    light_red: "#ff6666"
+    light_green: "#66ff66"
+    light_yellow: "#ffff66"
+    light_blue: "#6666ff"
+    light_magenta: "#ff66ff"
+    light_cyan: "#66ffff"
+    brown: "#a52a2a"
+    orange: "#ffa500"
+
+# Keymaps
+keymaps:
+  _yes: "y"
+  _no: "n"
+  _roll: "r"
+  _sell: "s"
+  _up: "Up"
+  _down: "Down"
+  _enter: "Enter"
+  _esc: "Escape"
+
+# Language settings
+lang:
+  currency_symbol: "$"
+  text_balance: "Balance"
+  text_currentTile: "You are on: "
+  text_isWalking: "Walking..."
+  text_doYouWannaBuy: "Do you want to buy it? [%keymapping_yes%/%keymapping_no%]"
+  text_payedPassover_sub: "You payed"
+  text_payedPassover_add: "You got"
+  text_prisonInfo: "You are in prison! You have %game_prison_maxtries% tries to get out or pay a fee! (Good Luck!)"
+  text_prisonInfo2: "(Roll 2 of the same number to get out)"
+  text_prisonBuyOut: "No more tries do you want to buy you out (%currency_symbol%%game_prison_buyPrice%) or else give up? [%keymapping_yes%/%keymapping_no%]"
+  tile.1: "Go"
+  tile.2: "Mediterranean Avenue"
+  tile.3: "Community Chest"
+  tile.4: "Baltic Avenue"
+  tile.5: "Income Tax"
+  tile.6: "Reading Railroad"
+  tile.7: "Oriental Avenue"
+  tile.8: "Chance"
+  tile.9: "Vermont Avenue"
+  tile.10: "Connecticut Avenue"
+  tile.11: "Visit jail"
+  tile.12: "St. Charles Place"
+  tile.13: "Electric Company"
+  tile.14: "States Avenue"
+  tile.15: "Virginia Avenue"
+  tile.16: "Pennsylvania Railroad"
+  tile.17: "St. James Place"
+  tile.18: "Community Chest"
+  tile.19: "Tennessee Avenue"
+  tile.20: "New York Avenue"
+  tile.21: "Free Parking"
+  tile.22: "Kentucky Avenue"
+  tile.23: "Chance"
+  tile.24: "Indiana Avenue"
+  tile.25: "Illinois Avenue"
+  tile.26: "B&O Railroad"
+  tile.27: "Atlantic Avenue"
+  tile.28: "Ventnor Avenue"
+  tile.29: "Water Works"
+  tile.30: "Marvin Gardens"
+  tile.31: "Go To Jail"
+  tile.32: "Pacific Avenue"
+  tile.33: "North Carolina Avenue"
+  tile.34: "Community Chest"
+  tile.35: "Pennsylvania Avenue"
+  tile.36: "Short Line"
+  tile.37: "Chance"
+  tile.38: "Park Place"
+  tile.39: "Luxury Tax"
+  tile.40: "Boardwalk"
+
+# Effects
+effects:
+
+# Debug (Don't change unless needed)
+debug:
+  enabled: False
+  logging: False
+  printCord: 34
+  length: 1
