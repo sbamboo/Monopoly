@@ -3,6 +3,10 @@ sound:
   enabled: False
   backgroundTrack: ""
 
+# File management
+files:
+  defaultEncoding: "utf-8"
+
 # Animation settings
 animations:
   enabled: True
@@ -18,6 +22,11 @@ window:
   width: 148
   height: 35
   ui_offset: 1
+
+# Name list settings  (Set to 'False' to turn disable) Remember to use / or \\
+nameList:
+  nameListFile: False #"%parent%\\gw-names.txt"
+  nameListEncoding: "utf-8"
 
 # Game logic settings  (Winning round can be False to disable)
 gameStuff:

@@ -3,64 +3,16 @@ import platform
 import keyboard
 import time
 
-# Set console size
-def setConSize(width,height):
-    platformv = platform.system()
-    if platformv == "Linux":
-        #return "\033[31mError: Platform Linux not supported yet!\033[0m"
-        os.system(f"resize -s {height} {width}")
-    elif platformv == "Darwin":
-        #return "\033[31mError: Platform Darwin not supported yet!\033[0m"
-        os.system(f"resize -s {height} {width}")
-    elif platformv == "Windows":
-        #return "\033[31mError: Platform Windows not supported yet!\033[0m"
-        os.system(f'mode con: cols={width} lines={height}') # Apply console size with windows.cmd.mode
+# Load namelist
+def loadNameList(filepath,encoding="utf-8") -> list:
+    if os.path.exists(filepath):
+        content = open(filepath,'r',encoding=encoding).read()
+        content = content.strip("\n")
+        content = content.strip()
+        nameList = content.split(",")
+        return nameList
     else:
-        return f"\033[31mError: Platform {platformv} not supported yet!\033[0m"
-
-# Set console title
-def setConTitle(title):
-    platformv = platform.system()
-    if platformv == "Linux":
-        return "\033[31mError: Platform Linux not supported yet!\033[0m"
-    elif platformv == "Darwin":
-        return "\033[31mError: Platform Darwin not supported yet!\033[0m"
-    elif platformv == "Windows":
-        #return "\033[31mError: Platform Windows not supported yet!\033[0m"
-        os.system(f'title {title}') # Apply console size with windows.cmd.title
-    else:
-        return f"\033[31mError: Platform {platformv} not supported yet!\033[0m"
-
-# Clear the screen
-def clear():
-    platformv = platform.system()
-    if platformv == "Linux":
-        return "\033[31mError: Platform Linux not supported yet!\033[0m"
-        os.system(f"resize -s {height} {width}")
-    elif platformv == "Darwin":
-        return "\033[31mError: Platform Darwin not supported yet!\033[0m"
-        os.system(f"resize -s {height} {width}")
-    elif platformv == "Windows":
-        #return "\033[31mError: Platform Windows not supported yet!\033[0m"
-        os.system("CLS") # Apply console size with windows.cmd.cls
-    else:
-        return f"\033[31mError: Platform {platformv} not supported yet!\033[0m"
-
-# Pause
-def pause():
-    platformv = platform.system()
-    if platformv == "Linux":
-        return "\033[31mError: Platform Linux not supported yet!\033[0m"
-        os.system(f"resize -s {height} {width}")
-    elif platformv == "Darwin":
-        return "\033[31mError: Platform Darwin not supported yet!\033[0m"
-        os.system(f"resize -s {height} {width}")
-    elif platformv == "Windows":
-        #return "\033[31mError: Platform Windows not supported yet!\033[0m"
-            os.system("PAUSE > nul") # Apply console size with windows.cmd.cls
-    else:
-        return f"\033[31mError: Platform {platformv} not supported yet!\033[0m"
-
+        raise Exception(f"Namelist-file: {filepath} not found and won't be loaded!")
 
 # Keyboard reader functions
 def waitKey(keyname):

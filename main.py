@@ -11,6 +11,9 @@
 
 # ======================================[ Setup ]====================================
 
+# Preset
+defaultEncoding = "utf-8"
+
 # Imports
 import os
 import re
@@ -21,23 +24,28 @@ import webcolors
 from datetime import datetime
 from utils import *
 from playsound import * # Not done
+from assets.libs.conUtils import *
+from assets.libs.Drawlib.assets import load_asset,load_texture,render_asset,deTokenize,deTokenizeTexture,getANSI
+from assets.libs.Drawlib.legacy import drawlib_internal_printmemsprite
+
+# Get parent folder
+parentFolder = os.path.abspath(os.path.dirname(__file__))
 
 # Enviroment Setup
 setConSize(148,35)
 setConTitle("Monopoly")
 os.system("") # Enable ANSI
 
-# Import name list
-monopol = ['Gå' , 'Västra långgatan', 'Allmänning', 'Hornsgsgatan', 'Inkomstskatt', 'Södra station', 'Folkungagatan', 'Chans', 'Götgatan', 'Ringvägen', 'Besök fängelse', 'St Eriksgatan', 'Elverket', 'Odengatan', 'Valhallavägen', 'Östra station', 'Sturegatan', 'Allmänning', 'Karlavägen', 'Narvavägen', 'Fri parkering', 'Strandvägen', 'Chans', 'Kungsträdsgårdsgatan', 'Hamngatan', 'Centralstation', 'Vasagatan', 'Kungsgatan', 'Vattenledningsverket', 'Stureplan', 'Gå i fängelse', 'Gustav Adolfs Torg', 'Drottninggatan', 'Allmänning', 'Diplomatstaden', 'Norra station', 'Chans', 'Centrum', 'Betala lyxskatt', 'Norrmalmstorg']
-gw_names = monopol
-
 # =============================[ Define Render Functions ]===========================
 
 # Debug function
-def debug(msg):
+def debug(msg,enabled=None,logging=None):
 	# Get globals
 	global debug_enabled
 	global debug_logging
+	# Apply args
+	if enabled != None: debug_enabled = enabled
+	if logging != None: debug_logging = logging
 	# Log message to file
 	if debug_logging == True:
 		# Get date and time from datetime
@@ -53,88 +61,13 @@ def debug(msg):
 		# Get cords
 		startCord = settings["debug"]["printCord"]
 		# Print
-		render_texture(0,int(startCord),["                                                         "],"light_gray")
+		render_texture(0,int(startCord),["                                                         "],getANSI("light_gray"))
 		render_texture(0,int(startCord),[str(msg)],"light_gray")
 
-# De tokenising function
-def deTokenize(string):
-	# Get tokens
-	prepLine = str(string)
-	tokens = re.findall(r'%.*?%',prepLine)
-	# Get variable from token name and replace the token with the variables value
-	for token in tokens:
-		token = str(token)
-		var = token.replace('%','')
-		value = str(globals()[var])
-		string = string.replace(token,value)
-	# Return de-tokenised string
-	return string
-
-# Load texture
-def load_texture (filepath):
-	# Get content from file
-	rawContent = open(filepath, 'r', encoding="utf-8").read()
-	splitContent = rawContent.split("\n")
-	# Fix empty last-line issue
-	if splitContent[-1] == "":
-		splitContent.pop(-1)
-	# Return content as a list
-	return splitContent
-
-# Asset loader
-def load_asset (filepath):
-	# Get content from file
-	rawContent = open(filepath, 'r', encoding="utf-8").read()
-	splitContent = rawContent.split("\n") # Line splitter
-	# Get asset configuration from file
-	configLine = (splitContent[0]).split("#")[0]
-	configLine_split = configLine.split(";")
-	posX = configLine_split[0]
-	posY = configLine_split[1]
-	color = configLine_split[2]
-	splitContent.pop(0)
-	# Get texture
-	texture = splitContent
-	# Return config and texture
-	return int(posX), int(posY), list(texture), str(color)
-
-# Print sprite
-def render_texture (posX,posY,texture,color):
-	print("\033[s") # Save cursorPos
-	# Get color code
-	colorcode = getANSI(color)
-	# Print texture
-	c = 0
-	OposY = int(posY)
-	for line in texture:
-		posY = OposY + c
-		# Replace tokens in line
-		line = deTokenize(line)
-		# Set ansi prefix and print it
-		ANSIprefix = "\033[" + str(apply_vertOffset(posY)) + ";" + str(posX) + "H" + "\033[" + str(colorcode) + "m"
-		print(ANSIprefix, str(line), "\033[0m")
-		c += 1
-	print("\033[u\033[2A") # Load cursorPos
-
-# Get ANSI code from name
-def getANSI (name):
-	# Get hex value
-	hex = palette[name]
-	hex = hex.replace("#",'')
-	# Get RGB value
-	lv = len(hex)
-	rgb = tuple(int(hex[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
-	rgbstr = str(rgb)
-	rgbstr = rgbstr.replace(' ','')
-	rgbstr = rgbstr.replace('(','')
-	rgbstr = rgbstr.replace(')','')
-	rgbdta = rgbstr.split(',')
-	# Create ansi code string
-	background=False
-	ansi = '{};2;{};{};{}'.format(48 if background else 38, rgbdta[0], rgbdta[1], rgbdta[2])
-	# Return ansi code string
-	return ansi
-
+# custom render wrapper function
+def render_texture(posX,posY,texture,colorName):
+	texture = deTokenizeTexture(texture,globals())
+	drawlib_internal_printmemsprite(texture, posX, apply_vertOffset(posY), getANSI(colorName))
 
 # Apply global offset
 def apply_vertOffset (posY):
@@ -158,7 +91,7 @@ def cordsChoice (posX, posY, text=None, color=None):
 	colorcode = getANSI(color)
 	# Print texture
 	# Replace tokens in line
-	text = deTokenize(text)
+	text = deTokenize(text,globals())
 	# Set ansi prefix
 	ANSIprefix = "\033[" + str(apply_vertOffset(posY)) + ";" + str(posX) + "H" + "\033[" + str(colorcode) + "m"
 	input(str(ANSIprefix + str(text + "\033[0m")))
@@ -181,9 +114,9 @@ def selector(state):
 		ui_selector_state = state
 	# Rended correct selector texture depending on state
 	if ui_selector_state == True:
-		render_texture(ui_selector_pos[0],ui_selector_pos[1],texture_ui_selector,theme_selector)
+		render_texture(texture_ui_selector,ui_selector_pos[0],ui_selector_pos[1],getANSI(theme_selector))
 	elif ui_selector_state == False:
-		render_texture(ui_selector_pos[0],ui_selector_pos[1],texture_ui_selector_reset,theme_ui_list)
+		render_texture(texture_ui_selector_reset,ui_selector_pos[0],ui_selector_pos[1],getANSI(theme_ui_list))
 
 # Anim If enabled (If animations are enabled wait for a given time)
 def animIfEnabled(animationsEnabled,timei):
@@ -677,10 +610,11 @@ none = ""
 config_path = "."
 boardFile = config_path + "//board.yaml"
 settingsFile = config_path + "//settings.yaml"
-boardRaw = open(boardFile, 'r').read()
-settingsRaw = open(settingsFile, 'r', encoding="utf-8").read()
+boardRaw = open(boardFile, 'r',encoding=defaultEncoding).read()
+settingsRaw = open(settingsFile, 'r', encoding=defaultEncoding).read()
 board = yaml.load(boardRaw, Loader=yaml.Loader)
 settings = yaml.load(settingsRaw, Loader=yaml.Loader)
+defaultEncoding = settings["files"]["defaultEncoding"]
 palette = settings["theme"]["palette"]
 lang = settings["lang"]
 
@@ -688,12 +622,20 @@ lang = settings["lang"]
 setConSize(settings["window"]["width"],settings["window"]["height"])
 setConTitle(settings["window"]["title"])
 
-# Apply names from gw_names
-c = 0
-for o in board:
-	if "tile." in str(o):
-		settings["lang"][str(o)] = gw_names[c]
-		c = c + 1
+# Apply names from nameList
+nameList = settings["nameList"].get("nameListFile")
+if nameList != None and nameList != False:
+	nameList = nameList.replace("%root%",parentFolder)
+	nameList = nameList.replace("%parent%",parentFolder)
+	encoding = settings["nameList"].get("nameListEncoding")
+	if encoding == None: encoding = defaultEncoding
+	nameListContent = loadNameList(nameList,settings["nameList"]["nameListEncoding"])
+	if nameListContent != None and nameListContent != []:
+		c = 0
+		for o in board:
+			if "tile." in str(o):
+				settings["lang"][str(o)] = nameListContent[c]
+				c = c + 1
 
 # Apply names to board tiles
 c = 0
@@ -803,13 +745,13 @@ game_prison_buyPrice = settings["gameStuff"]["prison_buyPrice"]
 game_roundIncome = settings["gameStuff"]["roundIncome"]
 
 # Prep texts
-text_doYouWannaBuy = deTokenize(lang["text_doYouWannaBuy"])
-text_balance = deTokenize(lang["text_balance"])
-text_payedPassover_sub = deTokenize(lang["text_payedPassover_sub"])
-text_payedPassover_add = deTokenize(lang["text_payedPassover_add"])
-text_prisonBuyOut = deTokenize(lang["text_prisonBuyOut"])
-text_prisonInfo = deTokenize(lang["text_prisonInfo"])
-text_prisonInfo2 = deTokenize(lang["text_prisonInfo2"])
+text_doYouWannaBuy = deTokenize(lang["text_doYouWannaBuy"],globals())
+text_balance = deTokenize(lang["text_balance"],globals())
+text_payedPassover_sub = deTokenize(lang["text_payedPassover_sub"],globals())
+text_payedPassover_add = deTokenize(lang["text_payedPassover_add"],globals())
+text_prisonBuyOut = deTokenize(lang["text_prisonBuyOut"],globals())
+text_prisonInfo = deTokenize(lang["text_prisonInfo"],globals())
+text_prisonInfo2 = deTokenize(lang["text_prisonInfo2"],globals())
 
 # ==============================[ Main Game Section ]==============================
 

@@ -1,0 +1,24 @@
+{
+    "format": 1,
+    "fFormat": "JSON",
+    "libInfo": {
+        "name":    "Monopol - Drawlib",
+        "desc":    "A cli-based monopoly game (unofficial)",
+        "version": "1.0",
+        "vid":     "1",
+        "release": "2023-08-20",
+        "author":  "Simon Kalmi Claesson",
+        "dependencies": [
+            {
+                "name":    "Drawlib",
+                "version": "1.0",
+                "author":  "Simon Kalmi Claesson"
+            },
+            {
+                "name":    "ConUtils",
+                "version": "1.2",
+                "author":  "Simon Kalmi Claesson"
+            }
+        ]
+    }
+}
