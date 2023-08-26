@@ -1,0 +1,14 @@
+# A little todo list for development :)
+
+Conic Bezier Curves
+circleSector: mX, mY, rad, deg1, deg2
+(fillIn, dualWide) sprite modification
+Sort some things? Maybe not so many files?
+custom palette classObject with custom __get__ method to handle hex to rgbAnsi, remember to change the typeCheck to ad or isInstance(palette,<Class>)
+
+hex/rgb to palette
+make assets.drawlib_asset_palette use colorings palette system
+normalise the use of xPos yPos naming scheme everywhere and cX,cY or xM,yM not both
+also normlise the caping of x,y and isPoint for points/tuples/list
+
+find a better way to convert to-from splitPixelGroup (or make functions for each conversionType)
